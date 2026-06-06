@@ -64,13 +64,21 @@
       --navy:      #1B2A4A;
     }
 
-    html { scroll-behavior: smooth; }
+    html {
+      scroll-behavior: smooth;
+      overflow-x: hidden;
+    }
+
+    *, *::before, *::after {
+      max-width: 100vw;
+    }
 
     body {
       background-color: var(--ivory);
       color: var(--charcoal);
       font-family: 'EB Garamond', serif;
       overflow-x: hidden;
+      width: 100%;
     }
 
     /* ── Envelope opening ── */
@@ -136,7 +144,7 @@
     /* Botanical corner decorations */
     .corner-deco {
       position: absolute;
-      width: 180px; height: 180px;
+      width: min(180px, 40vw); height: min(180px, 40vw);
       opacity: 0.2;
       background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cg fill='none' stroke='%23E8D5B0' stroke-width='1'%3E%3Cellipse cx='60' cy='140' rx='40' ry='20' transform='rotate(-30 60 140)'/%3E%3Cellipse cx='80' cy='100' rx='35' ry='18' transform='rotate(-60 80 100)'/%3E%3Cellipse cx='100' cy='60' rx='30' ry='15' transform='rotate(-80 100 60)'/%3E%3Cpath d='M20 180 Q60 120 120 40'/%3E%3Cpath d='M40 180 Q75 140 130 80'/%3E%3Ccircle cx='22' cy='175' r='3' fill='%23E8D5B0'/%3E%3Ccircle cx='125' cy='40' r='3' fill='%23E8D5B0'/%3E%3Cpath d='M50 170 Q55 155 65 145' stroke-width='0.8'/%3E%3Cpath d='M70 150 Q85 130 95 110' stroke-width='0.8'/%3E%3C/g%3E%3C/svg%3E");
       background-size: contain;
@@ -385,6 +393,15 @@
   </div>
 </div>
 
+<!-- ─── FLOATING BUTTONS ─── -->
+<div class="fixed bottom-[120px] right-4 z-50 flex flex-col items-end gap-2" x-show="envelopeOpened" x-transition>
+  <a href="https://yaswarau.github.io/penawaran.html" target="_blank"
+     class="flex items-center gap-1.5 bg-blue-600 hover:bg-blue-700 text-white text-[10px] font-medium pl-3 pr-3.5 py-2 rounded-full shadow-lg transition-all hover:scale-105">
+    <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9.568 3H5.25A2.25 2.25 0 003 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581c.699.699 1.78.872 2.607.33a18.095 18.095 0 005.223-5.223c.542-.827.369-1.908-.33-2.607L11.16 3.66A2.25 2.25 0 009.568 3z"/><path stroke-linecap="round" stroke-linejoin="round" d="M6 6h.008v.008H6V6z"/></svg>
+    Paket
+  </a>
+</div>
+
 <!-- ─── MUSIC TOGGLE ─── -->
 <div id="music-btn" @click="toggleMusic" :title="playing ? 'Pause music' : 'Play music'" x-show="envelopeOpened" x-transition>
   <svg x-show="!playing" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="1.5">
@@ -463,13 +480,13 @@
       ✝ United in Christ's Love ✝
     </p>
 
-    <h1 class="font-display text-[68px] sm:text-[78px] leading-none font-light italic shimmer-text animate-fade-up delay-200">
+    <h1 class="font-display text-[52px] sm:text-[78px] leading-none font-light italic shimmer-text animate-fade-up delay-200">
       Jonathan
     </h1>
     <div class="ornament ornament-light text-champagne/40 my-3 animate-fade-up delay-400">
       <span class="font-display text-2xl italic text-champagne/50">&</span>
     </div>
-    <h1 class="font-display text-[68px] sm:text-[78px] leading-none font-light italic shimmer-text animate-fade-up delay-600">
+    <h1 class="font-display text-[52px] sm:text-[78px] leading-none font-light italic shimmer-text animate-fade-up delay-600">
       Elizabeth
     </h1>
 
